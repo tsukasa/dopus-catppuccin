@@ -22,3 +22,11 @@ opus_theme_nc:
 
         # Background
         graph_freespace_back: var(--ctp-crust)
+
+        # - - - Free space pie charts - - -
+
+        # Free space
+        graph_freespace_pie_free: var(--ctp-blue)
+
+        # Used space
+        graph_freespace_pie_used: var(--ctp-red)

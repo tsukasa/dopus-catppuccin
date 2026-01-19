@@ -11,7 +11,7 @@ opus_theme_nc:
 
     named_dwords:
       "@attributes":
-        
+
         # Tab style
         rounded_tabs: 1
 
@@ -21,7 +21,7 @@ opus_theme_nc:
         # - - - Folder tabs - - -
 
         # Text
-        foldertab_unsel_text: var(--ctp-overlay0)
+        foldertab_unsel_text: var(--ctp-surface1)
 
         # Background
         foldertab_unsel_background: var(--ctp-mantle)
