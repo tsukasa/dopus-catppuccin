@@ -1,5 +1,11 @@
 opus_theme_nc:
   colors:
+    named_color_bools:
+      "@attributes":
+
+        # Shadow in thumbnails mode
+        fd_expander_thumbshadow: yes
+
     named_colors:
       "@attributes":
 
