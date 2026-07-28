@@ -2,7 +2,7 @@ import { flavors, version } from "@catppuccin/palette";
 import chalk from "chalk";
 import fs from 'node:fs';
 import path from 'node:path';
-import archiver from 'archiver';
+import { ZipArchive } from 'archiver';
 import { parseArgs } from 'node:util';
 import { findYamlFiles, readYamlFile, mergeAttributes } from './yamlUtils.js';
 import { jsonObjectToXml } from './xmlUtils.js';
@@ -123,8 +123,8 @@ function createThemeArchive(flavorKey, flavor) {
         // Create a write stream to the archive file
         const output = fs.createWriteStream(archivePath);
 
-        // Create a new archive
-        const archive = archiver('zip', {
+        // Create a new zip archive
+        const archive = new ZipArchive({
             zlib: { level: 9 } // Maximum compression level
         });
 
