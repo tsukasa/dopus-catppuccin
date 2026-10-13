@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import yaml from 'js-yaml';
+import * as yaml from 'js-yaml';
 
 /**
  * Helper to check if value is an object
@@ -95,6 +95,10 @@ export function findYamlFiles(dirPath, excludeFiles = []) {
 export function readYamlFile(filePath) {
     try {
         const content = fs.readFileSync(filePath, 'utf-8');
+        // js-yaml 5 throws on empty (or comment-only) input; keep the v4 behavior of returning undefined
+        if (content.replace(/^\s*#.*$/gm, '').trim() === '') {
+            return undefined;
+        }
         return yaml.load(content);
     } catch (error) {
         console.warn(`Warning: Could not read or parse YAML file ${filePath}: ${error.message}`);
